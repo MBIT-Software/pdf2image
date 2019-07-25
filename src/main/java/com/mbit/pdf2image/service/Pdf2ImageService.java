@@ -1,6 +1,7 @@
 package com.mbit.pdf2image.service;
 
 import com.mbit.pdf2image.domain.Timer;
+import lombok.extern.slf4j.Slf4j;
 import org.ghost4j.Ghostscript;
 import org.ghost4j.GhostscriptException;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 
 @Service
+@Slf4j
 public class Pdf2ImageService {
 
 
@@ -44,7 +46,7 @@ public class Pdf2ImageService {
             gs.exit();
 
         } catch (GhostscriptException e) {
-            e.printStackTrace();
+            log.error("Error during converting pdf to image: {}", e.getMessage());
         }
 
         try {
@@ -52,7 +54,7 @@ public class Pdf2ImageService {
             result = Files.readAllBytes(outputFile.toPath());
 
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("Error reading bytes from converted file: {}", e.getMessage());
         }
 
         timer.stop();
