@@ -4,4 +4,4 @@ applications:
     memory: 1024M
     disk_quota: 512M
     path: target/pdf2image.jar
-    command: export PATH=$PATH:$PWD/bin/ &&
+#    command: export PATH=$PATH:$PWD/bin/ &&
