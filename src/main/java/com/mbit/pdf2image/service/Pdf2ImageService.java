@@ -53,8 +53,6 @@ public class Pdf2ImageService {
         try {
             rasterizedEPS = ImageIO.read(outputFile);
 
-            System.out.println(rasterizedEPS == null);
-
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             ImageIO.write(rasterizedEPS, "jpg", baos);
 
