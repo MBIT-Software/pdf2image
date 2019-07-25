@@ -2,8 +2,10 @@ package com.mbit.pdf2image.domain;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @RequiredArgsConstructor
+@Slf4j
 public class Timer {
 
     @NonNull
@@ -12,6 +14,6 @@ public class Timer {
     private long init = System.currentTimeMillis();
 
     public void stop() {
-        System.out.println(name + " took: " + new Double(System.currentTimeMillis() - init) / 1000);
+        log.debug(name + " took: " + new Double(System.currentTimeMillis() - init) / 1000);
     }
 }
